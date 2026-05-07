@@ -4,8 +4,6 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        main.cpp \
-        red.cpp
+        main.cpp
 
 HEADERS += \
-    red.h
