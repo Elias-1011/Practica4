@@ -1,24 +1,13 @@
 #include <iostream>
 #include "Red.h"
+#include "utilidades.h"
 
 using namespace std;
-
-void mostrarMenu() {
-    cout << "\n===== SIMULADOR DE RED DE ENRUTADORES =====\n";
-    cout << "1. Agregar enrutador\n";
-    cout << "2. Eliminar enrutador\n";
-    cout << "3. Conectar enrutadores\n";
-    cout << "4. Desconectar enrutadores\n";
-    cout << "5. Mostrar vecinos de un enrutador\n";
-    cout << "6. Calcular rutas y mostrar tabla de costos\n";
-    cout << "7. Salir\n";
-    cout << "Seleccione una opcion: ";
-}
 
 int main() {
     Red red;
     int opcion;
-    string origen, destino;
+    string origen, destino, archivo;
     int costo;
 
     do {
@@ -77,6 +66,15 @@ int main() {
             break;
 
         case 7:
+            cout << "Nombre del archivo: ";
+            cin >> archivo;
+            if (cargarRedDesdeArchivo(red, archivo)){
+                red.actualizarTablas();
+                cout << "Tablas actualizadas despues de cargar el archivo.\n";
+            }
+            break;
+
+        case 8:
             cout << "Saliendo...\n";
             break;
 
@@ -84,7 +82,7 @@ int main() {
             cout << "Opcion invalida.\n";
         }
 
-    } while (opcion != 7);
+    } while (opcion != 8);
 
     return 0;
 }
