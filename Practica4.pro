@@ -6,8 +6,13 @@ CONFIG -= qt
 SOURCES += \
         red.cpp\
         enrutador.cpp\
-        main.cpp
+        main.cpp \
+        utilidades.cpp
 
 HEADERS += \
         red.h \
-        enrutador.h
+        enrutador.h \
+        utilidades.h
+
+DISTFILES += \
+    red.txt
